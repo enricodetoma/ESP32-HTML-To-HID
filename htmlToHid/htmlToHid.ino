@@ -100,6 +100,39 @@ void handleCommand()
                 key = KEY_RETURN;
                 break;
             case 7:
+                key = KEY_F1;
+                break;
+            case 8:
+                key = KEY_F2;
+                break;
+            case 9:
+                key = KEY_F3;
+                break;
+            case 10:
+                key = KEY_F4;
+                break;
+            case 11:
+                key = KEY_F5;
+                break;
+            case 12:
+                key = KEY_F6;
+                break;
+            case 13:
+                key = KEY_F7;
+                break;
+            case 14:
+                key = KEY_F8;
+                break;
+            case 15:
+                key = KEY_F9;
+                break;
+            case 16:
+                key = KEY_F10;
+                break;
+            case 17:
+                key = KEY_F11;
+                break;
+            case 18:
                 key = KEY_F12;
                 break;
             }

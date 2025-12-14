@@ -35,8 +35,47 @@ R"(
         <div class="col-6">
           <button id="enter" type="button" class="btn btn-primary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=6")'>Enter</button>
         </div>
+      </div>
+      <div class="row" style="margin-top: 1em;">
         <div class="col-3">
-          <button id="exit" type="button" class="btn btn-primary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=7")'>Exit</button>
+          <button id="f1" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=7")'>F1</button>
+        </div>
+        <div class="col-3">
+          <button id="f2" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=8")'>F2</button>
+        </div>
+        <div class="col-3">
+          <button id="f3" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=9")'>F3</button>
+        </div>
+        <div class="col-3">
+          <button id="f4" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=10")'>F4</button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 0.5em;">
+        <div class="col-3">
+          <button id="f5" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=11")'>F5</button>
+        </div>
+        <div class="col-3">
+          <button id="f6" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=12")'>F6</button>
+        </div>
+        <div class="col-3">
+          <button id="f7" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=13")'>F7</button>
+        </div>
+        <div class="col-3">
+          <button id="f8" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=14")'>F8</button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 0.5em;">
+        <div class="col-3">
+          <button id="f9" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=15")'>F9</button>
+        </div>
+        <div class="col-3">
+          <button id="f10" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=16")'>F10</button>
+        </div>
+        <div class="col-3">
+          <button id="f11" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=17")'>F11</button>
+        </div>
+        <div class="col-3">
+          <button id="f12" type="button" class="btn btn-secondary" style="height: 100%; width: 100%" onclick='makeAjaxCall("command?press=18")'>F12</button>
         </div>
       </div>
       <div class="row justify-content-center" style="margin-top: 2em;">

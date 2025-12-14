@@ -8,7 +8,7 @@ class ProjectConfig
 {
 public:
   // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  String timeZone = "Europe/London"; // seems to be something wrong with Europe/Dublin
+  String timeZone = "Europe/Rome"; // seems to be something wrong with Europe/Dublin
 
   bool twentyFourHour = false;
 
