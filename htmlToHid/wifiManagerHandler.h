@@ -21,6 +21,8 @@ void setupWiFiManager(bool forceConfig, ProjectConfig config, ProjectDisplay *th
 {
   wm_Display = theDisplay;
   WiFiManager wm;
+  // set 5 minutes timeout for config portal
+  wm.setConfigPortalTimeout(300);
   // set config save notify callback
   wm.setSaveConfigCallback(saveConfigCallback);
   // set callback that gets called when connecting to previous WiFi fails, and enters Access Point mode
