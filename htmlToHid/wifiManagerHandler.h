@@ -5,6 +5,9 @@ ProjectDisplay *wm_Display;
 // flag for saving data
 bool shouldSaveConfig = false;
 
+extern unsigned long wifiDisconnectedTime;
+extern bool wasWifiConnected;
+
 // callback notifying us of the need to save config
 void saveConfigCallback()
 {
@@ -15,6 +18,9 @@ void saveConfigCallback()
 void configModeCallback(WiFiManager *myWiFiManager)
 {
   wm_Display->drawWifiManagerMessage(myWiFiManager);
+  // Reset WiFi disconnect timer when entering config mode
+  wifiDisconnectedTime = 0;
+  wasWifiConnected = false;
 }
 
 void setupWiFiManager(bool forceConfig, ProjectConfig config, ProjectDisplay *theDisplay)

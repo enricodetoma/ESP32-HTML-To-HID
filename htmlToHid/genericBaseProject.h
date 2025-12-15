@@ -60,7 +60,15 @@
 // RTC Memory Address for the DoubleResetDetector to use
 #define DRD_ADDRESS 0
 
+// WiFi disconnection timeout (in milliseconds)
+// ESPHome default is 15 minutes
+#define WIFI_REBOOT_TIMEOUT (15 * 60 * 1000)
+
 ProjectConfig projectConfig;
+
+// WiFi monitoring variables
+unsigned long wifiDisconnectedTime = 0;
+bool wasWifiConnected = false;
 
 SerialDisplay serialDisplay;
 ProjectDisplay *projectDisplay = &serialDisplay;
@@ -131,9 +139,51 @@ void baseProjectSetup()
     Serial.print(F(":     "));
     Serial.println(myTZ.dateTime());
     Serial.println("-------------------------");
+
+    // Initialize WiFi monitoring - device is now connected
+    wasWifiConnected = true;
+    wifiDisconnectedTime = 0;
 }
 
 void baseProjectLoop()
 {
     drd->loop();
+
+    // Monitor WiFi connection status
+    bool isWifiConnected = (WiFi.status() == WL_CONNECTED);
+
+    if (isWifiConnected)
+    {
+        // WiFi is connected, reset the disconnect timer
+        if (!wasWifiConnected)
+        {
+            Serial.println("WiFi reconnected!");
+        }
+        wasWifiConnected = true;
+        wifiDisconnectedTime = 0;
+    }
+    else
+    {
+        // WiFi is disconnected
+        if (wasWifiConnected)
+        {
+            // Just disconnected
+            Serial.println("WiFi disconnected!");
+            wifiDisconnectedTime = millis();
+            wasWifiConnected = false;
+        }
+        else if (wifiDisconnectedTime > 0)
+        {
+            // Still disconnected, check if timeout exceeded
+            unsigned long disconnectDuration = millis() - wifiDisconnectedTime;
+            if (disconnectDuration >= WIFI_REBOOT_TIMEOUT)
+            {
+                Serial.print("WiFi disconnected for ");
+                Serial.print(disconnectDuration / 1000);
+                Serial.println(" seconds, rebooting...");
+                delay(1000);
+                ESP.restart();
+            }
+        }
+    }
 }
